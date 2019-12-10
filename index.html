@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Paddle game</title>
+    <link
+      rel="shortcut icon"
+      type="image/png"
+      href="/assets/media/joystick.png"
+    />
+    <style>
+      body {
+        /* margin: 0 auto; */
+        /* text-align: center; */
+      }
+
+      #game-screen {
+        border: 1px solid #111;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <span>SCORE :</span>
+      <span class="score"></span>
+    </div>
+    <br />
+    <canvas id="game-screen" width="800" height="600"></canvas>
+    <script type="module" src="assets/js/main.js"></script>
+  </body>
+</html>
