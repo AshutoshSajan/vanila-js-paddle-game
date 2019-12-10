@@ -13,7 +13,6 @@ ballImage.src = "assets/media/basketball.png";
 wallImage.src = "assets/media/brick.png";
 
 let game = new Game(GAME_WIDTH, GAME_HEIGHT, ballImage, wallImage);
-game.start();
 
 let lastTime = 0;
 

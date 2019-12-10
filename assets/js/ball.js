@@ -16,6 +16,10 @@ export default class Ball {
     };
   }
 
+  reset() {
+    this.position = { x: 50, y: 200 };
+  }
+
   draw(ctx) {
     ctx.drawImage(
       this.image,
@@ -36,25 +40,16 @@ export default class Ball {
     }
 
     // top bottom ball collision check
-    if (this.position.y + this.size > this.gameHeight || this.position.y < 0) {
+    if (this.position.y < 0) {
       this.speed.y = -this.speed.y;
-
-      /* to pause the the game;
-                ||
-                \/           */
-
-      // this.position.x = 10;
-      // this.position.y = 10;
-      // this.speed.x = 0;
-      // this.speed.y = 0;
     }
 
-    // paddle ball collision check
-    // if (
-    //   bottomOfBall >= topOfPaddle &&
-    //   this.position.x >= leftSideOfPaddle &&
-    //   this.position.x + this.size <= rightSideOfPaddle
-    // )
+    // bottom collision of ball
+    if (this.position.y + this.size > this.gameHeight) {
+      this.game.lives--;
+      this.reset();
+    }
+
     if (detectCollision(this, this.game.paddle)) {
       this.speed.y = -this.speed.y;
       this.position.y = this.game.paddle.position.y - this.size;
