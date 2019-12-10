@@ -1,6 +1,8 @@
 export default class Paddle {
-  constructor(gameWidth, gameHeight) {
-    this.gameWidth = gameWidth;
+  constructor(game) {
+    this.gameWidth = game.gameWidth;
+    this.gameHeight = game.gameHeight;
+
     this.width = 150;
     this.height = 30;
 
@@ -8,8 +10,8 @@ export default class Paddle {
     this.speed = 0;
 
     this.position = {
-      x: gameWidth / 2 - this.width / 2,
-      y: gameHeight - this.height
+      x: this.gameWidth / 2 - this.width / 2,
+      y: this.gameHeight - this.height + 10
     };
   }
 
@@ -30,10 +32,9 @@ export default class Paddle {
     ctx.fillRect(this.position.x, this.position.y, this.width, this.height);
   }
 
-  //dt = deltaTime (dt will provided by request animation frame fn)
+  //dt = deltaTime
   update(dt) {
     // if (!dt) return;
-
     this.position.x += this.speed;
     if (this.position.x < 0) {
       this.position.x = 0;
