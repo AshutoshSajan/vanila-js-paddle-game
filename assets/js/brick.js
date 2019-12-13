@@ -11,7 +11,7 @@ export default class Brick {
 
     this.position = position;
 
-    this.width = 80;
+    this.width = 100;
     this.height = 24;
 
     this.markedForDeletion = false;
@@ -29,7 +29,8 @@ export default class Brick {
 
   update(dt) {
     if (detectCollision(this.game.ball, this)) {
-      this.game.ball.position.y = -this.game.ball.speed.y;
+      // console.log("bricks collision...");
+      this.game.ball.speed.y = -this.game.ball.speed.y;
       this.markedForDeletion = true;
       this.game.score++;
     }

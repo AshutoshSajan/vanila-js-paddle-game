@@ -39,7 +39,12 @@ export default class Ball {
       this.speed.x = -this.speed.x;
     }
 
-    // top bottom ball collision check
+    // ball top collision check
+    // let topOfBall = this.position.y;
+    // let leftSideOfBall = this.position.x;
+    // let rightSideOfBall = this.position.x + this.width;
+    // let bottomOfBall = this.position.y + this.height;
+
     if (this.position.y < 0) {
       this.speed.y = -this.speed.y;
     }
@@ -50,9 +55,18 @@ export default class Ball {
       this.reset();
     }
 
+    // collision check for ball and paddle
+    var paddleMovement = this.game.paddle.position.x;
+
     if (detectCollision(this, this.game.paddle)) {
+      // console.log("ball paddle collision check", this.game.paddle.position.x);
       this.speed.y = -this.speed.y;
-      this.position.y = this.game.paddle.position.y - this.size;
+      // if(this.game.paddle.position.x > paddleMovement){
+      //   this.speed.x = -this.speed.x;
+      // } else {
+      //   this.speed.x = this.speed.x;
+      // }
+      // this.position.y = this.game.paddle.position.y - this.size;
     }
   }
 }

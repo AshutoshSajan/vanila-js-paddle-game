@@ -25,7 +25,7 @@ export default class Game {
 
     this.gameObjects = [];
 
-    this.lives = 1;
+    this.lives = 3;
     this.score = 0;
 
     new InputHandler(this.paddle, this);

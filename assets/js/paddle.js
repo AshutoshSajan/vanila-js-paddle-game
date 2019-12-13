@@ -34,6 +34,13 @@ export default class Paddle {
 
   //dt = deltaTime
   update(dt) {
+    // console.log(
+    //   "paddle possition",
+    //   this.position.x,
+    //   "\n",
+    //   "paddle speed: ",
+    //   this.maxSpeed
+    // );
     this.position.x += this.speed;
     if (this.position.x < 0) {
       this.position.x = 0;
